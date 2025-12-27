@@ -41,38 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ndarray-any-by
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-anyBy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var anyBy = require( 'path/to/vendor/umd/ndarray-any-by/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.anyBy;
-})();
-</script>
+var anyBy = require( '@stdlib/ndarray-any-by' );
 ```
 
 #### anyBy( x\[, options], predicate\[, thisArg] )
@@ -91,10 +85,7 @@ var x = array( [ [ 1.0, -2.0 ], [ 3.0, -4.0 ] ] );
 
 // Test whether at least one element is positive:
 var out = anyBy( x, isPositive );
-// returns <ndarray>
-
-var v = out.get();
-// returns true
+// returns <ndarray>[ true ]
 ```
 
 The function accepts the following arguments:
@@ -112,7 +103,6 @@ The function accepts the following options:
 By default, the function performs a reduction over all elements in a provided [`ndarray`][@stdlib/ndarray/ctor]. To reduce specific dimensions, set the `dims` option.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 function isPositive( value ) {
@@ -121,6 +111,7 @@ function isPositive( value ) {
 
 // Create an input ndarray:
 var x = array( [ [ 1.0, 2.0 ], [ -3.0, -4.0 ] ] );
+// returns <ndarray>
 
 var opts = {
     'dims': [ 1 ]
@@ -128,16 +119,12 @@ var opts = {
 
 // Perform reduction:
 var out = anyBy( x, opts, isPositive );
-// returns <ndarray>
-
-var v = ndarray2array( out );
-// returns [ true, false ]
+// returns <ndarray>[ true, false ]
 ```
 
 By default, the function returns an [`ndarray`][@stdlib/ndarray/ctor] having a shape matching only the non-reduced dimensions of the input [`ndarray`][@stdlib/ndarray/ctor] (i.e., the reduced dimensions are dropped). To include the reduced dimensions as singleton dimensions in the output [`ndarray`][@stdlib/ndarray/ctor], set the `keepdims` option to `true`.
 
 ```javascript
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var array = require( '@stdlib/ndarray-array' );
 
 function isPositive( value ) {
@@ -153,10 +140,7 @@ var opts = {
 
 // Perform reduction:
 var out = anyBy( x, opts, isPositive );
-// returns <ndarray>
-
-var v = ndarray2array( out );
-// returns [ [ [ true ] ] ]
+// returns <ndarray>[ [ true ] ]
 ```
 
 To set the function execution context, provide a `thisArg`.
@@ -180,10 +164,7 @@ var ctx = {
 
 // Perform reduction:
 var out = anyBy( x, isPositive, ctx );
-// returns <ndarray>
-
-var v = out.get();
-// returns true
+// returns <ndarray>[ true ]
 
 var count = ctx.count;
 // returns 4
@@ -211,10 +192,7 @@ var y = empty( [], {
 
 // Perform reduction:
 var out = anyBy.assign( x, y, isPositive );
-// returns <ndarray>
-
-var v = out.get();
-// returns true
+// returns <ndarray>[ true ]
 
 var bool = ( out === y );
 // returns true
@@ -237,7 +215,6 @@ By default, the function performs a reduction over all elements in a provided [`
 ```javascript
 var array = require( '@stdlib/ndarray-array' );
 var empty = require( '@stdlib/ndarray-empty' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
 
 function predicate( value ) {
     return value > 0.0;
@@ -258,12 +235,10 @@ var opts = {
 
 // Perform reduction:
 var out = anyBy.assign( x, y, opts, predicate );
+// returns <ndarray>[ true, false ]
 
 var bool = ( out === y );
 // returns true
-
-var v = ndarray2array( y );
-// returns [ true, false ]
 ```
 
 </section>
@@ -290,13 +265,8 @@ var v = ndarray2array( y );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {.factory;
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
 var isEven = require( '@stdlib/assert-is-even' ).isPrimitive;
 var ndarray2array = require( '@stdlib/ndarray-to-array' );
 var fillBy = require( '@stdlib/ndarray-fill-by' );
@@ -311,11 +281,6 @@ console.log( ndarray2array( x ) );
 
 var y = anyBy( x, isEven );
 console.log( y.get() );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -402,7 +367,7 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/ndarray-any-by/main/LICENSE
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/umd
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
 </section>
 
