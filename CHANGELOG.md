@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-12-28)
+## Unreleased (2026-01-10)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`892be43`](https://github.com/stdlib-js/stdlib/commit/892be43dfec83129f37877bae20fff27f73f8cf2) - **test:** fix description _(by Athan Reines)_
 -   [`880be90`](https://github.com/stdlib-js/stdlib/commit/880be90c78565355d6e6616def13ccf5037faeca) - **style:** add missing spaces before closing bracket _(by Philipp Burckhardt)_
 -   [`d80dfe4`](https://github.com/stdlib-js/stdlib/commit/d80dfe41a1ef87da9fdf8c4cb88c3036134faa2f) - **docs:** improve doctests for ndarray instances in `ndarray/any-by` [(#9399)](https://github.com/stdlib-js/stdlib/pull/9399) _(by Rohit R Bhat, Athan Reines)_
 -   [`daf2cc8`](https://github.com/stdlib-js/stdlib/commit/daf2cc847c77117f4c5ae4e5e99ae224bb592edc) - **refactor:** add writable parameter to `ndarray/base/spread-dimensions` [(#9370)](https://github.com/stdlib-js/stdlib/pull/9370) _(by Muhammad Haris, Athan Reines)_
