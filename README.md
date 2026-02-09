@@ -48,13 +48,18 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import anyBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/ndarray-any-by/tags). For example,
+
+```javascript
 import anyBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@v0.1.1-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@v0.1.1-esm/index.mjs';
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@esm/index.mjs';
 ```
 
 #### anyBy( x\[, options], predicate\[, thisArg] )
@@ -264,7 +269,7 @@ var isEven = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-even' ).i
 import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
 import fillBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-fill-by@esm/index.mjs';
 import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@esm/index.mjs';
-import anyBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@v0.1.1-esm/index.mjs';
+import anyBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-any-by@esm/index.mjs';
 
 var x = zeros( [ 2, 4, 5 ], {
     'dtype': 'float64'
